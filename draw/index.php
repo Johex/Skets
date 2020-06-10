@@ -3,7 +3,6 @@
 $page_title = 'Skets';
 include __DIR__ . '/tpl/head.php';
 ?>
-
     <div class="container">
         <div class="row">
             <div class="column col12">
@@ -17,7 +16,7 @@ include __DIR__ . '/tpl/head.php';
                     <button id="green-pencil" class="pencil-button" style="background-color: green; width: 20px; height: 20px; border-radius: 50%"></button>
                     <button id="blue-pencil" class="pencil-button" style="background-color: blue; width: 20px; height: 20px; border-radius: 50%"></button>
                     <p>Width:</p>
-                    <button id="small-brush" class="brush-size-button" style="background-color: white; width: 10px; height: 10px; border-radius: 50%"></button>
+                    <button id="small-pencil" class="brush-size-button" style="background-color: white; width: 10px; height: 10px; border-radius: 50%"></button>
                     <button id="medium-pencil" class="brush-size-button" style="background-color: white; width: 15px; height: 15px; border-radius: 50%"></button>
                     <button id="big-pencil" class="brush-size-button" style="background-color: white; width: 20px; height: 20px; border-radius: 50%"></button>
 

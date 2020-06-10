@@ -7,10 +7,9 @@ $(function () {
 		x: undefined,
 		y: undefined
 	}
-	let drawStle = ''
 	let mouse_history = mouse
-	drawStle = 'pencil'
-	ctx.lineWidth = 3
+	let drawStyle = 'pencil'
+	ctx.lineWidth = 2
 
 	$('#clear-button').click(function () {
 		ctx.fillStyle = 'white'
@@ -18,54 +17,98 @@ $(function () {
 	})
 	$('#black-pencil').click(function () {
 		ctx.strokeStyle = 'black'
-		drawStle = 'pencil'
-
+		drawStyle = 'pencil'
+		ctx.lineWidth = 2
 	})
 	$('#red-pencil').click(function () {
 		ctx.strokeStyle = 'red'
-		drawStle = 'pencil'
-		ctx.lineWidth = 3
+		drawStyle = 'pencil'
+		ctx.lineWidth = 2
 	})
 	$('#green-pencil').click(function () {
 		ctx.strokeStyle = 'green'
-		drawStle = 'pencil'
-		ctx.lineWidth = 3
+		drawStyle = 'pencil'
+		ctx.lineWidth = 2
 	})
 	$('#blue-pencil').click(function () {
 		ctx.strokeStyle = 'blue'
-		drawStle = 'pencil'
-		ctx.lineWidth = 3
+		drawStyle = 'pencil'
+		ctx.lineWidth = 2
 	})
 	$('#black-fill').click(function () {
 		ctx.fillStyle = 'black'
-		drawStle = 'fill'
+		drawStyle = 'fill'
 	})
 	$('#red-fill').click(function () {
 		ctx.fillStyle = 'red'
-		drawStle = 'fill'
+		drawStyle = 'fill'
 	})
 	$('#green-fill').click(function () {
 		ctx.fillStyle = 'green'
-		drawStle = 'fill'
+		drawStyle = 'fill'
 	})
 	$('#blue-fill').click(function () {
 		ctx.fillStyle = 'blue'
-		drawStle = 'fill'
+		drawStyle = 'fill'
 	})
 	$('#big-eraser').click(function () {
 		ctx.strokeStyle = 'white'
 		ctx.lineWidth = 12
-		drawStle = 'pencil'
+		drawStyle = 'erase'
 	})
 	$('#medium-eraser').click(function () {
 		ctx.strokeStyle = 'white'
 		ctx.lineWidth = 9
-		drawStle = 'pencil'
+		drawStyle = 'erase'
 	})
 	$('#small-eraser').click(function () {
 		ctx.strokeStyle = 'white'
 		ctx.lineWidth = 6
-		drawStle = 'pencil'
+		drawStyle = 'erase'
+	})
+	$('#black-brush').click(function () {
+		ctx.strokeStyle = 'black'
+		drawStyle = 'brush'
+		ctx.lineWidth = 6
+	})
+	$('#red-brush').click(function () {
+		ctx.strokeStyle = 'red'
+		drawStyle = 'brush'
+		ctx.lineWidth = 6
+	})
+	$('#green-brush').click(function () {
+		ctx.strokeStyle = 'green'
+		drawStyle = 'brush'
+		ctx.lineWidth = 6
+	})
+	$('#blue-brush').click(function () {
+		ctx.strokeStyle = 'blue'
+		drawStyle = 'brush'
+		ctx.lineWidth = 6
+	})
+	$('#small-pencil').click(function () {
+		drawStyle = 'pencil'
+		ctx.lineWidth = 1
+	})
+	$('#medium-pencil').click(function () {
+		drawStyle = 'pencil'
+		ctx.lineWidth = 2
+	})
+	$('#big-pencil').click(function () {
+		drawStyle = 'pencil'
+		ctx.lineWidth = 3
+	})
+	$('#small-brush').click(function () {
+		drawStyle = 'brush'
+		ctx.lineWidth = 4
+	})
+	$('#medium-brush').click(function () {
+		drawStyle = 'brush'
+		ctx.lineWidth = 6
+	})
+	$('#big-brush').click(function () {
+		drawStyle = 'brush'
+		ctx.lineWidth = 8
 	})
 
 
@@ -80,7 +123,7 @@ $(function () {
 
 
 	$('#canvas').mousemove(function () {
-		if (mouse_pressed == true && drawStle == 'pencil') {
+		if (mouse_pressed == true && (drawStyle == 'pencil' || drawStyle == 'erase' || drawStyle == 'brush')) {
 			mouse_history = {
 				x: event.x,
 				y: event.y
@@ -107,7 +150,7 @@ $(function () {
 	})
 
 	$('#canvas').click(function () {
-		if (drawStle == 'fill') {
+		if (drawStyle == 'fill') {
 			ctx.fillRect(0, 0, 500, 500);
 		}
 	})
