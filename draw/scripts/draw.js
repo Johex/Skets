@@ -14,6 +14,7 @@ $(function () {
 	$('#clear-button').click(function () {
 		ctx.fillStyle = 'white'
 		ctx.fillRect(0, 0, 500, 500);
+		updateURL()
 	})
 	$('#black-pencil').click(function () {
 		ctx.strokeStyle = 'black'
@@ -153,5 +154,17 @@ $(function () {
 		if (drawStyle == 'fill') {
 			ctx.fillRect(0, 0, 500, 500);
 		}
+		updateURL()
+
 	})
+	function updateURL() {
+		let canvasForURL = $('#canvas')
+		let dataURL = canvasForURL[0].toDataURL();
+		$.post('updateCanvas.php', {
+			dataURL: dataURL
+		})
+	}
+
+// //	interval for if user doesnt release mouse for 0.7 seconds
+// 	let int = setInterval(updateURL, 700)
 })
