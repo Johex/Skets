@@ -1,69 +1,66 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 
 <head>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="UTF-8">
     
     <title>Chat</title>
-    
     <link rel="stylesheet" href="style.css" type="text/css" />
-
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script type="text/javascript" src="chat.js"></script>
     <script type="text/javascript">
     
-        // ask user for name with popup prompt    
-        var name = prompt("Enter your chat name:", "Guest");
+        // Hier wordt de gebruiker naar zijn naam gevraagd.
+        let name = prompt("Enter your chat name:", "Guest");
         
-        // default name is 'Guest'
+        // Als er geen naar wordt gegeven, wordt de gebruiker Guest.
     	if (!name || name === ' ') {
     	   name = "Guest";	
     	}
 
-    	
-    	// kick off chat
-        var chat =  new Chat();
-    	$(function() {
-            // display name on page
-            $("#name-area").html( "<span>" + name + "</span>");
 
-    		 chat.getState(); 
+    	$(function() {
+
+            // display name on page
+            $("#name-area").html( "<p>" + "You are: " + name + "</p>");
+
+    		 chatstatus();
     		 
-    		 // watch textarea for key presses
-             $("#sendie").keydown(function(event) {  
+    		 // Hier kan de gebruiker zijn bericht typen
+             $("#bericht").keydown(function(event) {
              
-                 var key = event.which;  
-           
-                 //all keys including return.  
+                 let key = event.which;
+
                  if (key >= 33) {
                    
-                     var maxLength = $(this).attr("maxlength");  
-                     var length = this.value.length;  
+                     let maxLength = $(this).attr("maxlength");
+                     let length = this.value.length;
                      
-                     // don't allow new content if length is maxed out
+                     // Als de maximumlengte wordt overschreden, wordt het typen gestopt
                      if (length >= maxLength) {  
                          event.preventDefault();  
                      }  
                   }  
-    		 																																																});
-    		 // watch textarea for release of key press
-    		 $('#sendie').keyup(function(e) {	
+             });
+    		 // Als enter wordt gedrukt, wordt het berichtt verzonden
+    		 $('#bericht').keyup(function(e) {
     		 					 
     			  if (e.keyCode == 13) { 
     			  
-                    var text = $(this).val();
-    				var maxLength = $(this).attr("maxlength");  
-                    var length = text.length; 
-                     
-                    // send 
+                    let text = $(this).val();
+    				let maxLength = $(this).attr("maxlength");
+                    let length = text.length;
+                    let answer = "appel"
+
                     if (length < maxLength) {
-                     
-    			        chat.send(text, name);	
-    			        $(this).val("");
-    			        
+                        // Hier wordt gecheckt of het juiste antwoord wordt gegeven
+
+                        sendChat(text, name);
+                        // bericht vlak wordt leeg gemaakt
+                        $(this).val("");
+
                     } else {
-                    
+                        // Als de gebruiker meer dan 100 characters typt, worden alleen de eerste 100 verstuurd.
     					$(this).val(text.substring(0, maxLength));
     					
     				}	
@@ -77,7 +74,8 @@
 
 </head>
 
-<body onload="setInterval('chat.update()', 1000)">
+<body onload="setInterval('updateChat(name)', 1000)">
+
 
     <div id="page-wrap">
 
@@ -88,12 +86,19 @@
         <div id="chat-wrap"><div id="chat-area"></div></div>
         
         <form id="send-message-area">
-            <p>Your message: </p>
-            <textarea id="sendie" maxlength = '100' ></textarea>
+            <b>Your message: </b>
+            <textarea id="bericht" maxlength = '100' ></textarea>
         </form>
+        <br><br>
+        <script>
+            add_user(name);
+        </script>
     
     </div>
+    <div id="score-wrapper">
+      <script>
+      </script>
+    </div>
+
 
 </body>
-
-</html>
