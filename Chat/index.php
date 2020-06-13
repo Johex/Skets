@@ -96,8 +96,6 @@
     
     </div>
     <div id="score-wrapper">
-      <script>
-      </script>
     </div>
 
 

@@ -105,3 +105,9 @@ function sendChat(message, nickname)
 		});
 }
 
+function loadScore(){
+	$.get('score.php', function (data) {
+		$('#score-wrapper').html(data)
+	})
+}
+let interval = setInterval(loadScore, 1000)

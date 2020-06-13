@@ -3,6 +3,7 @@
     $function = $_POST['function'];
     
     $log = array();
+
     
     switch($function) {
     
