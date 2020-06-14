@@ -5,13 +5,17 @@ include __DIR__ . '/tpl/head.php';
 ?>
 <div class="container">
     <div class="row">
-        <div class="column col-6">
+        <div class="column col-9">
             <h1>canvas</h1>
 <!--            <canvas id="canvas" width="500" height="500" style="border:1px solid #000000;"></canvas>-->
             <img id="drawing" width="500" height="500"/>
         </div>
-        <div class="column col-3">
-            <h1>chat</h1>
+        <div class="column col-2">
+            <div id="score-wrapper">
+
+            </div>
+        </div>
+        <div class="column col-2">
             <div id="page-wrap">
 
                 <h2>Chat</h2>
