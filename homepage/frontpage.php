@@ -14,7 +14,7 @@ include __DIR__ . '/tpl/body_start.php';
         <div class="column col-3">
             <h1>Chat</h1>
             <?php
-            include __DIR__ . '/../chat/index.php';
+            include __DIR__ . ' /../chat/index.php';
             ?>
         </div>
     </div>
