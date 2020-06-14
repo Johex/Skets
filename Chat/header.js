@@ -15,14 +15,19 @@ $(function () {
         mouse.y= event.y
     })
 
+    c.addEventListener("mouseout", function () {
+        mouse.x = undefined
+        mouse.y= undefined
+    })
+
 
     class Ball {
         constructor() {
             this.r = Math.floor(Math.random() * (50 - 25)) + 25;
             this.x = Math.floor(Math.random() * (innerWidth - this.r - this.r) + this.r)
             this.y = Math.floor(Math.random() * (200 - this.r - this.r) + this.r)
-            this.xdir = Math.floor(Math.random() * (2 - 1)) + 1;
-            this.ydir = Math.floor(Math.random() * (2 - 1)) + 1
+            this.xdir = Math.floor(Math.random() * (3 - 1)) + 1;
+            this.ydir = Math.floor(Math.random() * (3 - 1)) + 1
             this.red = Math.floor(Math.random() * 255)
             this.green = Math.floor(Math.random() * 255)
             this.blue = Math.floor(Math.random() * 255)
