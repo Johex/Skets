@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="frontpage.css">
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="header.js"></script>
+    <script type="text/javascript" src="scripts/loadImage.js"></script>
     <script src="../draw/scripts/draw.js"></script>
     <script type="text/javascript" src="chat.js"></script>
     <!--    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>-->
