@@ -1,9 +1,5 @@
-<?php
-/* Header */
-$page_title = 'Skets';
-include __DIR__ . '/tpl/head.php';
-?>
-    <div class="container">
+
+
         <div class="row">
             <div class="column col12">
                 <canvas id="canvas" width="500" height="500" style="border:1px solid #000000;"></canvas>
@@ -55,8 +51,3 @@ include __DIR__ . '/tpl/head.php';
                 </div>
             </div>
         </div>
-    </div>
-
-<?php
-include __DIR__ . '/tpl/footer.php';
-?>
