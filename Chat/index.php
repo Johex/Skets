@@ -86,14 +86,13 @@
 
 <div class="container">
     <div class="row">
-        <div class="col">
-            <h1>canvas</h1>
+        <div class="column col-9">
             <div class="container">
                 <div class="row">
-                    <div class="column col12">
+                    <div>
                         <canvas id="canvas" width="500" height="500" style="border:1px solid #000000;"></canvas>
                     </div>
-                    <div class="column col12">
+                    <div>
                         <div style="border: 1px solid black">
                             <p>Pencils:</p>
                             <button id="black-pencil" class="pencil-button" style="background-color: black; width: 20px; height: 20px; border-radius: 50%"></button>
@@ -142,8 +141,12 @@
                 </div>
             </div>
         </div>
-        <div class="col">
-            <h1>chat</h1>
+        <div class="column col-2">
+            <div id="score-wrapper">
+
+            </div>
+        </div>
+        <div class="column col-2">
             <div id="page-wrap">
 
                 <h2>Chat</h2>
@@ -166,9 +169,7 @@
     </div>
 
 
-    <div id="score-wrapper">
 
-    </div>
-
+</div>
 
 </body>
