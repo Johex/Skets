@@ -5,7 +5,7 @@ let file;
 function add_user(nickname){
 	$.ajax({
 		type: "GET",
-		url: "changeScore.php",
+		url: "../scoreboard/changeScore.php",
 		data: {
 			'function': 'add_name',
 			'user': nickname,
@@ -61,7 +61,7 @@ function updateChat(nickname){
 								$('#chat-area').append("<p><b>" +  name + " heeft het goede antwoord gegeven! </b></p>");
 								$.ajax({
 									type: "GET",
-									url: "changeScore.php",
+									url: "../scoreboard/changeScore.php",
 									data: {
 										'user': name,
 										'score': 1
