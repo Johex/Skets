@@ -57,15 +57,18 @@ function updateChat(nickname){
 				   if(data.text){
 						for (let i = 0; i < data.text.length; i++) {
 							if(data.text[i].message === answer + "\n") {
-								console.log(name)
-								$('#chat-area').append("<p><b>" +  name + " heeft het goede antwoord gegeven! </b></p>");
-								$.ajax({
-									type: "GET",
-									url: "../scoreboard/changeScore.php",
-									data: {
-										'user': name,
-										'score': 1
-									}})
+								console.log(name + data.text[i].nickname)
+								$('#chat-area').append("<p><b>" +  data.text[i].nickname + " heeft het goede antwoord gegeven! </b></p>");
+								if (name === data.text[i].nickname){
+									console.log('adding score')
+									$.ajax({
+										type: "GET",
+										url: "../scoreboard/changeScore.php",
+										data: {
+											'user': data.text[i].nickname,
+											'score': 1
+										}})
+								}
 							}
 							else {
 								$('#chat-area').append($("<p> <b>"+ data.text[i].date + ": " + data.text[i].nickname + ": </b>" + data.text[i].message +"</p>"));
@@ -106,7 +109,7 @@ function sendChat(message, nickname)
 }
 
 function loadScore(){
-	$.get('score.php', function (data) {
+	$.get('../scoreboard/score.php', function (data) {
 		$('#score-wrapper').html(data)
 	})
 }
