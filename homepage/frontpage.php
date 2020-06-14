@@ -13,7 +13,7 @@ include __DIR__ . '/tpl/body_start.php';
         </div>
         <div class="column col-3">
             <?php
-            include __DIR__ . '/../chat/index.php';
+            include __DIR__ . ' /../chat/index.php';
             ?>
         </div>
     </div>
