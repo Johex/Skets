@@ -28,7 +28,7 @@ include __DIR__ . '/tpl/head.php';
                     <b>Your message: </b>
                     <textarea id="bericht" maxlength = '100' ></textarea>
                 </form>
-                <br><br>
+                <button id="erase" name="erase" type="button" onclick="reset()">Reset score</button>
                 <script>
                     add_user(name);
                 </script>
