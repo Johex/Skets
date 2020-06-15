@@ -1,7 +1,30 @@
 let instanse = false;
 let state;
 let file;
+let answers = ["Fiets", "Appel", "Boom", "Huis", "Auto", "Rijksuniversiteit Groningen", "Veracles", "Verjaardag", "Computer", "ASCI"];
 
+function get_word() {
+	lucky_number = Math.floor(Math.random() * 10);
+	let answer = answers[lucky_number];
+	$.ajax({
+		type: "POST",
+		url: "handler.php",
+		data: {
+			'function': 'get_answer',
+			'answer': answer,
+		},
+		dataType: "json",
+		success: function (data) {
+		}
+	})
+	let woorden = document.getElementById("woord_plek");
+	woorden.innerHTML = answer;
+
+}
+
+function reset() {
+	$.get('../scoreboard/resetScore.php' )
+}
 function add_user(nickname){
 	$.ajax({
 		type: "GET",
@@ -56,7 +79,7 @@ function updateChat(nickname){
 				   let answer = 1;
 				   if(data.text){
 						for (let i = 0; i < data.text.length; i++) {
-							if(data.text[i].message === answer + "\n") {
+							if(data.text[i].message === "appel" + "\n") {
 								console.log(name + data.text[i].nickname)
 								$('#chat-area').append("<p><b>" +  data.text[i].nickname + " heeft het goede antwoord gegeven! </b></p>");
 								if (name === data.text[i].nickname){

@@ -68,7 +68,7 @@ include __DIR__ . '/tpl/head.php';
         <div class="column col-2">
             <div id="page-wrap">
 
-                <h2>Chat</h2>
+                <h2 id="woord_plek"> Woord </h2>
 
                 <p id="name-area"></p>
 
@@ -78,7 +78,8 @@ include __DIR__ . '/tpl/head.php';
                     <b>Your message: </b>
                     <textarea id="bericht" maxlength = '100' ></textarea>
                 </form>
-                <br><br>
+                <button id="woord" name = "woord" type="button" onclick="get_word()">Nieuw woord</button>
+                <button id="erase" name="erase" type="button" onclick="reset()">Reset score</button>
                 <script>
                     add_user(name);
                 </script>

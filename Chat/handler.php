@@ -62,7 +62,21 @@
 
 		 }
         	 break;
-    	
+
+        case('get_answer'):
+            $antwoord = htmlentities($_POST['word']);
+            $answer_list = file_get_contents('answer.json');
+            $temp_array = json_decode($answer_list, true);
+            $export_data = [
+                'answer' => $_POST['answer']
+            ];
+            $temp_array = $export_data;
+            $json_data = json_encode($temp_array, JSON_PRETTY_PRINT);
+            file_put_contents('answer.json', $json_data);
+            $log['answer'] = $temp_array;
+
+            break;
+
     }
     
     echo json_encode($log);
