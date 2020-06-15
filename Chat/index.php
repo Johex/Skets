@@ -54,7 +54,7 @@ include __DIR__ . '/tpl/head.php';
                             <button id="clear-button" class="btn">Clear Field</button>
                         </div>
                         <div>
-                            <button id="submit" class="btn">Send drawing!</button>
+<!--                            <button id="submit" class="btn">Send drawing!</button>-->
                         </div>
                     </div>
                 </div>
@@ -80,10 +80,11 @@ include __DIR__ . '/tpl/head.php';
                 </form>
                 <button id="woord" name = "woord" type="button" onclick="get_word()">Nieuw woord</button>
                 <button id="erase" name="erase" type="button" onclick="reset()">Reset score</button>
+
                 <script>
                     add_user(name);
                 </script>
-
+                <button id="goToTeken" name="teken" type="button" onclick="window.location.href='http://95.217.238.186/Chat/guesser.php'">Ga naar raadscherm!!</button
             </div>
         </div>
     </div>
