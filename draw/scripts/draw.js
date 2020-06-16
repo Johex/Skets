@@ -126,8 +126,8 @@ $(function () {
 	$('#canvas').mousemove(function () {
 		if (mouse_pressed == true && (drawStyle == 'pencil' || drawStyle == 'erase' || drawStyle == 'brush')) {
 			mouse_history = {
-				x: event.x,
-				y: event.y
+				x: event.offsetX,
+				y: event.offsetY
 			}
 		}
 		else {
@@ -145,8 +145,8 @@ $(function () {
 		ctx.lineTo(mouse.x, mouse.y);
 		ctx.stroke();
 		mouse = {
-			x: event.x,
-			y: event.y
+			x: event.offsetX,
+			y: event.offsetY
 		}
 	})
 
@@ -160,7 +160,7 @@ $(function () {
 	function updateURL() {
 		let canvasForURL = $('#canvas')
 		let dataURL = canvasForURL[0].toDataURL();
-		$.post('updateCanvas.php', {
+		$.post('../draw/updateCanvas.php', {
 			dataURL: dataURL
 		})
 	}

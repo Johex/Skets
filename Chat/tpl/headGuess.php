@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<head lang="en">
+
     <meta charset="UTF-8">
-    <title>Skets</title>
+
+    <title>Chat</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../draw/css/style.css">
-    <link rel="stylesheet" href="../css/frontpage.css">
-    <link rel="stylesheet" href="../../chat/style.css">
+    <link rel="stylesheet" href="frontpage.css">
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    <script src="../../draw/scripts/draw.js"></script>
-    <script src="scripts/header.js"></script>
-    <script src="../../chat/chat.js"></script>
+    <script type="text/javascript" src="header.js"></script>
+    <script type="text/javascript" src="scripts/loadImage.js"></script>
+<!--    <script src="../draw/scripts/draw.js"></script>-->
+    <script type="text/javascript" src="chat.js"></script>
+    <!--    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>-->
     <script type="text/javascript">
 
         // Hier wordt de gebruiker naar zijn naam gevraagd.
@@ -67,17 +69,13 @@
                         $(this).val(text.substring(0, maxLength));
 
                     }
-
-
                 }
             });
-
         });
     </script>
 </head>
+
+<body onload="setInterval('updateChat(name)', 1000)">
 <header>
     <canvas id="header" style="border: 1px solid black"></canvas>
 </header>
-<body onload="setInterval('updateChat(name)', 1000)">
-
-
