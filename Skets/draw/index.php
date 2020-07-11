@@ -56,7 +56,6 @@ include __DIR__ . '/tpl/head.php';
             </div>
         </div>
     </div>
-
 <?php
-include __DIR__ . '/tpl/footer.php';
+include __DIR__ . '../tpl/footer.php';
 ?>
