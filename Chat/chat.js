@@ -16,15 +16,15 @@ function get_word() {
 		dataType: "json",
 		success: function (data) {
 		}
-	})
+	});
 	let woorden = document.getElementById("woord_plek");
 	woorden.innerHTML = answer;
-
 }
 
 function reset() {
-	$.get('../scoreboard/resetScore.php' )
+	$.get('../scoreboard/resetScore.php');
 }
+
 function add_user(nickname){
 	$.ajax({
 		type: "GET",
@@ -36,12 +36,11 @@ function add_user(nickname){
 		},
 		dataType: "json",
 		success: function(){
-
 		}
-	})
+	});
 }
 
-//Deze functie vertellt hoeveel messages er in de json file staan. Dat getal wordt elke seconde gecheckt. Als hetaantal toeneemt, worden de nieuwe berichten geprint op het bericht veld.
+//Deze functie vertelt hoeveel messages er in de json file staan. Dat getal wordt elke seconde gecheckt. Als hetaantal toeneemt, worden de nieuwe berichten geprint op het bericht veld.
 function chatstatus(){
 	if(!instanse){
 		 instanse = true;
@@ -80,17 +79,17 @@ function updateChat(nickname){
 				   if(data.text){
 						for (let i = 0; i < data.text.length; i++) {
 							if(data.text[i].message === "appel" + "\n") {
-								console.log(name + data.text[i].nickname)
+								console.log(name + data.text[i].nickname);
 								$('#chat-area').append("<p><b>" +  data.text[i].nickname + " heeft het goede antwoord gegeven! </b></p>");
 								if (name === data.text[i].nickname){
-									console.log('adding score')
+									console.log('adding score');
 									$.ajax({
 										type: "GET",
 										url: "../scoreboard/changeScore.php",
 										data: {
 											'user': data.text[i].nickname,
 											'score': 1
-										}})
+										}});
 								}
 							}
 							else {
@@ -134,6 +133,7 @@ function sendChat(message, nickname)
 function loadScore(){
 	$.get('../scoreboard/score.php', function (data) {
 		$('#score-wrapper').html(data)
-	})
+	});
 }
-let interval = setInterval(loadScore, 1000)
+
+let interval = setInterval(loadScore, 1000);
