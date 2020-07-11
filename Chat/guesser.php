@@ -13,7 +13,6 @@ include __DIR__ . '/tpl/headGuess.php';
             </div>
             <div class="column col-2">
                 <div id="score-wrapper">
-
                 </div>
             </div>
             <div class="column col-2">
@@ -26,7 +25,6 @@ include __DIR__ . '/tpl/headGuess.php';
                     <div id="chat-wrap">
                         <div id="chat-area"></div>
                     </div>
-
                     <form id="send-message-area">
                         <b>Your message: </b>
                         <textarea id="bericht" maxlength='100'></textarea>
@@ -38,15 +36,10 @@ include __DIR__ . '/tpl/headGuess.php';
                     <script>
                         add_user(name);
                     </script>
-
                 </div>
             </div>
         </div>
-
-
-        <div id="score-wrapper">
-
-        </div>
+        <div id="score-wrapper"></div>
 <?php
 include __DIR__ . '/tpl/footer.php';
 ?>

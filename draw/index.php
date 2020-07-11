@@ -45,7 +45,6 @@ include __DIR__ . '/tpl/head.php';
                             style="background-color: white; width: 30px; height: 30px; border-radius: 50%"></button>
                     <button id="big-brush" class="brush-size-button"
                             style="background-color: white; width: 35px; height: 35px; border-radius: 50%"></button>
-
                 </div>
                 <div style="border: 1px solid black">
                     <p>Erasers:</p>

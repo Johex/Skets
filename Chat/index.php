@@ -29,7 +29,6 @@ include __DIR__ . '/tpl/head.php';
                                     style="background-color: white; width: 15px; height: 15px; border-radius: 50%"></button>
                             <button id="big-pencil" class="brush-size-button"
                                     style="background-color: white; width: 20px; height: 20px; border-radius: 50%"></button>
-
                         </div>
                         <div style="border: 1px solid black">
                             <p>Brushes:</p>
@@ -49,7 +48,6 @@ include __DIR__ . '/tpl/head.php';
                                     style="background-color: white; width: 30px; height: 30px; border-radius: 50%"></button>
                             <button id="big-brush" class="brush-size-button"
                                     style="background-color: white; width: 35px; height: 35px; border-radius: 50%"></button>
-
                         </div>
                         <div style="border: 1px solid black">
                             <p>Erasers:</p>
@@ -83,27 +81,21 @@ include __DIR__ . '/tpl/head.php';
         </div>
         <div class="column col-2">
             <div id="score-wrapper">
-
             </div>
         </div>
         <div class="column col-2">
             <div id="page-wrap">
-
                 <h2 id="woord_plek"> Woord </h2>
-
                 <p id="name-area"></p>
-
                 <div id="chat-wrap">
                     <div id="chat-area"></div>
                 </div>
-
                 <form id="send-message-area">
                     <b>Your message: </b>
                     <textarea id="bericht" maxlength='100'></textarea>
                 </form>
                 <button id="woord" name="woord" type="button" onclick="get_word()">Nieuw woord</button>
                 <button id="erase" name="erase" type="button" onclick="reset()">Reset score</button>
-
                 <script>
                     add_user(name);
                 </script>
