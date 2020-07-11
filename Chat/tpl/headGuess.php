@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
 
     <title>Chat</title>
-    <link rel="stylesheet" href="style.css" type="text/css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="frontpage.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="header.js"></script>
     <script type="text/javascript" src="scripts/loadImage.js"></script>
-<!--    <script src="../draw/scripts/draw.js"></script>-->
+    <!--    <script src="../draw/scripts/draw.js"></script>-->
     <script type="text/javascript" src="chat.js"></script>
     <!--    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>-->
     <script type="text/javascript">
@@ -24,15 +26,15 @@
         }
 
 
-        $(function() {
+        $(function () {
 
             // display name on page
-            $("#name-area").html( "<p>" + "You are: " + name + "</p>");
+            $("#name-area").html("<p>" + "You are: " + name + "</p>");
 
             chatstatus();
 
             // Hier kan de gebruiker zijn bericht typen
-            $("#bericht").keydown(function(event) {
+            $("#bericht").keydown(function (event) {
 
                 let key = event.which;
 
@@ -48,9 +50,9 @@
                 }
             });
             // Als enter wordt gedrukt, wordt het berichtt verzonden
-            $('#bericht').keyup(function(e) {
+            $('#bericht').keyup(function (e) {
 
-                if (e.keyCode == 13) {
+                if (e.keyCode === 13) {
 
                     let text = $(this).val();
                     let maxLength = $(this).attr("maxlength");
