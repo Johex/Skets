@@ -22,13 +22,13 @@ function get_word() {
 }
 
 function reset() {
-    $.get('../scoreboard/resetScore.php');
+    $.get('scoreboard/resetScore.php');
 }
 
 function add_user(nickname) {
     $.ajax({
         type: "GET",
-        url: "../scoreboard/changeScore.php",
+        url: "scoreboard/changeScore.php",
         data: {
             'function': 'add_name',
             'user': nickname,
@@ -84,7 +84,7 @@ function updateChat(nickname) {
                                 console.log('adding score');
                                 $.ajax({
                                     type: "GET",
-                                    url: "../scoreboard/changeScore.php",
+                                    url: "scoreboard/changeScore.php",
                                     data: {
                                         'user': data.text[i].nickname,
                                         'score': 1
@@ -128,7 +128,7 @@ function sendChat(message, nickname) {
 }
 
 function loadScore() {
-    $.get('../scoreboard/score.php', function (data) {
+    $.get('scoreboard/score.php', function (data) {
         $('#score-wrapper').html(data);
     });
 }

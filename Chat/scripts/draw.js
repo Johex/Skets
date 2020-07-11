@@ -149,7 +149,7 @@ $(function () {
     function updateURL() {
         let canvasForURL = $('#canvas');
         let dataURL = canvasForURL[0].toDataURL();
-        $.post('../draw/updateCanvas.php', {
+        $.post('draw/updateCanvas.php', {
             dataURL: dataURL
         });
     }

@@ -4,7 +4,7 @@
         <th>Score</th>
     </tr>
     <?php
-    $string = file_get_contents("score.json");
+    $string = file_get_contents("../json/score.json");
     $json_a = json_decode($string, true);
     arsort($json_a);
     foreach ($json_a as $key => $value) {

@@ -1,7 +1,7 @@
 <?php
 /* Header */
 $page_title = 'Skets';
-include __DIR__ . '/tpl/head.php';
+include __DIR__ . 'tpl/head.php';
 ?>
 <div class="container">
     <div class="row">
@@ -106,7 +106,7 @@ include __DIR__ . '/tpl/head.php';
         </div>
     </div>
     <?php
-    include __DIR__ . '/tpl/footer.php';
+    include __DIR__ . 'tpl/footer.php';
     ?>
 
 

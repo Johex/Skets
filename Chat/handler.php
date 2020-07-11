@@ -5,8 +5,8 @@ $log = array();
 switch ($function) {
 
     case('status'):
-        if (file_exists('chat.json')) {
-            $lines = file_get_contents('chat.json');
+        if (file_exists('json/chat.json')) {
+            $lines = file_get_contents('json/chat.json');
             $lines = json_decode($lines, true);
             $log['state'] = count($lines);
         }
@@ -14,8 +14,8 @@ switch ($function) {
 
     case('update'):
         $state = $_POST['state'];
-        if (file_exists('chat.json')) {
-            $lines = file_get_contents('chat.json');
+        if (file_exists('json/chat.json')) {
+            $lines = file_get_contents('json/chat.json');
             $lines = json_decode($lines, true);
         }
         $count = count($lines);
@@ -39,7 +39,7 @@ switch ($function) {
         $nickname = htmlentities(strip_tags($_POST['nickname']));
         $message = htmlentities(strip_tags($_POST['message']));
         if (($message) != "\n") {
-            $json_file = file_get_contents('chat.json');
+            $json_file = file_get_contents('json/chat.json');
             $temp_array = json_decode($json_file, true);
             $export_data = [
                 'nickname' => $_POST['nickname'],
@@ -48,20 +48,20 @@ switch ($function) {
             ];
             $temp_array[] = $export_data;
             $json_data = json_encode($temp_array, JSON_PRETTY_PRINT);
-            file_put_contents('chat.json', $json_data);
+            file_put_contents('json/chat.json', $json_data);
         }
         break;
 
     case('get_answer'):
         $antwoord = htmlentities($_POST['word']);
-        $answer_list = file_get_contents('answer.json');
+        $answer_list = file_get_contents('json/answer.json');
         $temp_array = json_decode($answer_list, true);
         $export_data = [
             'answer' => $_POST['answer']
         ];
         $temp_array = $export_data;
         $json_data = json_encode($temp_array, JSON_PRETTY_PRINT);
-        file_put_contents('answer.json', $json_data);
+        file_put_contents('json/answer.json', $json_data);
         $log['answer'] = $temp_array;
         break;
 }

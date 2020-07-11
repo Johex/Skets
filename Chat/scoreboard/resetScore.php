@@ -1,3 +1,3 @@
 <?php
-$fileName = 'score.json';
+$fileName = '../json/score.json';
 file_put_contents($fileName, '{}');
