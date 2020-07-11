@@ -1,7 +1,5 @@
 <?php
-
 $function = $_POST['function'];
-
 $log = array();
 
 switch ($function) {
@@ -11,11 +9,7 @@ switch ($function) {
             $lines = file_get_contents('chat.json');
             $lines = json_decode($lines, true);
             $log['state'] = count($lines);
-
-
         }
-
-
         break;
 
     case('update'):
@@ -28,19 +22,17 @@ switch ($function) {
         if ($state == $count) {
             $log['state'] = $state;
             $log['text'] = false;
-
-        } else {
+        }
+        else {
             $text = array();
             $log['state'] = $state + count($lines) - $state;
             foreach ($lines as $line_num => $line) {
                 if ($line_num >= $state) {
                     $text[] = $line;
                 }
-
             }
             $log['text'] = $text;
         }
-
         break;
 
     case('send'):
@@ -57,7 +49,6 @@ switch ($function) {
             $temp_array[] = $export_data;
             $json_data = json_encode($temp_array, JSON_PRETTY_PRINT);
             file_put_contents('chat.json', $json_data);
-
         }
         break;
 
@@ -72,11 +63,8 @@ switch ($function) {
         $json_data = json_encode($temp_array, JSON_PRETTY_PRINT);
         file_put_contents('answer.json', $json_data);
         $log['answer'] = $temp_array;
-
         break;
-
 }
-
 echo json_encode($log);
 
 
