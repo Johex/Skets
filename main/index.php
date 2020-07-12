@@ -1,7 +1,7 @@
 <?php
 /* Header */
 $page_title = 'Skets';
-include __DIR__ . 'tpl/head.php';
+include __DIR__ . '/tpl/head.php';
 ?>
 <div class="container">
     <div class="row">
@@ -100,13 +100,13 @@ include __DIR__ . 'tpl/head.php';
                     add_user(name);
                 </script>
                 <button id="goToTeken" name="teken" type="button"
-                        onclick="window.location.href='http://95.217.238.186/Chat/guesser.php'">Ga naar raadscherm!!
+                        onclick="window.location.href='/guesser.php'">Ga naar raadscherm!!
                 </button
             </div>
         </div>
     </div>
     <?php
-    include __DIR__ . 'tpl/footer.php';
+    include __DIR__ . '/tpl/footer.php';
     ?>
 
 

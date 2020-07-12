@@ -1,7 +1,7 @@
 <?php
 /* Header */
 $page_title = 'Skets';
-include __DIR__ . 'tpl/headGuess.php';
+include __DIR__ . '/tpl/headGuess.php';
 ?>
     <div class="container">
         <div class="row">
@@ -31,7 +31,7 @@ include __DIR__ . 'tpl/headGuess.php';
                     </form>
                     <button id="erase" name="erase" type="button" onclick="reset()">Reset score</button>
                     <button id="goToTeken" name="teken" type="button"
-                            onclick="window.location.href='http://95.217.238.186/Chat/'">Ga naar tekenscherm!!
+                            onclick="window.location.href='/'">Ga naar tekenscherm!!
                     </button>
                     <script>
                         add_user(name);
@@ -41,5 +41,5 @@ include __DIR__ . 'tpl/headGuess.php';
         </div>
         <div id="score-wrapper"></div>
 <?php
-include __DIR__ . 'tpl/footer.php';
+include __DIR__ . '/tpl/footer.php';
 ?>
