@@ -78,6 +78,15 @@ function updateChat(nickname) {
                 if (data.text) {
                     for (let i = 0; i < data.text.length; i++) {
                         if (data.text[i].message === "appel" + "\n") {
+                            // Get current path, which we use to determine where to redirect
+                            let p = window.location.pathname.slice(6)
+                            if (p === 'index.php'){
+                                window.location.href = "guesser.php";
+                            }
+                            else {
+                                window.location.href = "index.php";
+                            }
+
                             console.log(name + data.text[i].nickname);
                             $('#chat-area').append("<p><b>" + data.text[i].nickname + " heeft het goede antwoord gegeven! </b></p>");
                             if (name === data.text[i].nickname) {

@@ -4,6 +4,7 @@ $page_title = 'Skets';
 include __DIR__ . '/tpl/head.php';
 ?>
 <div class="container">
+    <h1>Jij bent de tekenaar!</h1>
     <div class="row">
         <div class="column col-9">
             <div class="container">
@@ -100,7 +101,7 @@ include __DIR__ . '/tpl/head.php';
                     add_user(name);
                 </script>
                 <button id="goToTeken" name="teken" type="button"
-                        onclick="window.location.href='/guesser.php'">Ga naar raadscherm!!
+                        onclick="window.location.href='guesser.php'">Ga naar raadscherm!!
                 </button
             </div>
         </div>
