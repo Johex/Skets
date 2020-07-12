@@ -87,7 +87,7 @@ include __DIR__ . '/tpl/head.php';
         </div>
         <div class="column col-2">
             <div id="page-wrap">
-                <h2 id="woord_plek"> Woord </h2>
+                <h2 id="woord_plek"> Klik op new word! </h2>
                 <p id="name-area"></p>
                 <div id="chat-wrap">
                     <div id="chat-area"></div>
