@@ -18,7 +18,18 @@
     <script type="text/javascript">
 
         // Hier wordt de gebruiker naar zijn naam gevraagd.
-        let name = prompt("Enter your chat name:", "Guest");
+        // if (document.cookie.indexOf("name=") >= 0) {
+        //
+        // }
+        let name
+        if (document.cookie == ''){
+            name = prompt("Enter your chat name:", "Guest");
+            document.cookie = (name);
+
+        }
+        else {
+            name = document.cookie
+        }
         // Als er geen naar wordt gegeven, wordt de gebruiker Guest.
         if (!name || name === ' ') {
             name = "Guest";

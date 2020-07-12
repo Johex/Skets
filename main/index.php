@@ -5,6 +5,7 @@ include __DIR__ . '/tpl/head.php';
 ?>
 <div class="container">
     <h1>Jij bent de tekenaar!</h1>
+    <p><em>LET OP</em> zorg dat je het spel met 1 tekenaar start, spreek dit af in de chat</p>
     <div class="row">
         <div class="column col-9">
             <div class="container">
