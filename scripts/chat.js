@@ -82,7 +82,7 @@ function updateChat(nickname) {
                         for (let i = 0; i < data.text.length; i++) {
                             if (data.text[i].message.toUpperCase() === answer.toUpperCase() + "\n") {
                                 // Get current path, which we use to determine where to redirect
-                                let p = window.location.pathname.slice(6)
+                                let p = window.location.pathname.substr(window.location.pathname.length - 9)
                                 if (p === 'index.php') {
                                     window.location.href = "guesser.php";
                                 } else if (data.text[i].nickname === name) {
@@ -91,7 +91,7 @@ function updateChat(nickname) {
 
                                 console.log(name + data.text[i].nickname);
                                 $('#chat-area').append("<p><b>" + data.text[i].nickname + " heeft het goede antwoord gegeven! </b></p>");
-                                if (name === data.text[i].nickname && p !== 'index.php') {
+                                if (name === data.text[i].nickname) {
                                     console.log('adding score');
                                     $.ajax({
                                         type: "GET",
@@ -99,18 +99,6 @@ function updateChat(nickname) {
                                         data: {
                                             'user': data.text[i].nickname,
                                             'score': 1
-                                        }
-                                    });
-                                }
-                                else {
-                                    $('#chat-area').append("<p>De Tekenaar heeft gecheat (helaas) Hij/Zij krijgt " +
-                                        "vele minpunten</p>")
-                                                                        $.ajax({
-                                        type: "GET",
-                                        url: "scoreboard/changeScore.php",
-                                        data: {
-                                            'user': data.text[i].nickname,
-                                            'score': -50
                                         }
                                     });
                                 }
