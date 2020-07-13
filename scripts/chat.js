@@ -1,10 +1,11 @@
 let instanse = false;
 let state;
 let file;
-let answers = ["Fiets", "Appel", "Boom", "Huis", "Auto", "Rijksuniversiteit Groningen", "Veracles", "Verjaardag", "Computer", "ASCI"];
+let answers = ["Fiets", "Appel", "Boom", "Huis", "Auto", "Rijksuniversiteit Groningen", "Veracles",
+    "Verjaardag", "Computer", "ASCI", "Laptop", "Peer", "Broccoli"];
 
 function get_word() {
-    let lucky_number = Math.floor(Math.random() * 10);
+    let lucky_number = Math.floor(Math.random() * 13);
     let answer = answers[lucky_number];
     $.ajax({
         type: "POST",
@@ -63,14 +64,9 @@ function chatstatus() {
 //Hiermee worden de nieuwe berichten op het veld geprint
 function updateChat(nickname) {
     let answer;
-    // $.getJSON( "json/answer.json", function( data ) {
-    //     console.log(data.answer);
-    //     answer = data.answer;
-    //     })
     if (!instanse) {
         instanse = true;
         $.getJSON("json/answer.json", function (data) {
-            console.log(data.answer);
             answer = data.answer;
             $.ajax({
                 type: "POST",
@@ -82,10 +78,9 @@ function updateChat(nickname) {
                 },
                 dataType: "json",
                 success: function (data) {
-                    // let answer = 1;
                     if (data.text) {
                         for (let i = 0; i < data.text.length; i++) {
-                            if (data.text[i].message === answer + "\n") {
+                            if (data.text[i].message.toUpperCase() === answer.toUpperCase() + "\n") {
                                 // Get current path, which we use to determine where to redirect
                                 let p = window.location.pathname.slice(6)
                                 if (p === 'index.php') {
@@ -96,7 +91,7 @@ function updateChat(nickname) {
 
                                 console.log(name + data.text[i].nickname);
                                 $('#chat-area').append("<p><b>" + data.text[i].nickname + " heeft het goede antwoord gegeven! </b></p>");
-                                if (name === data.text[i].nickname) {
+                                if (name === data.text[i].nickname && p !== 'index.php') {
                                     console.log('adding score');
                                     $.ajax({
                                         type: "GET",
@@ -104,6 +99,18 @@ function updateChat(nickname) {
                                         data: {
                                             'user': data.text[i].nickname,
                                             'score': 1
+                                        }
+                                    });
+                                }
+                                else {
+                                    $('#chat-area').append("<p>De Tekenaar heeft gecheat (helaas) Hij/Zij krijgt " +
+                                        "vele minpunten</p>")
+                                                                        $.ajax({
+                                        type: "GET",
+                                        url: "scoreboard/changeScore.php",
+                                        data: {
+                                            'user': data.text[i].nickname,
+                                            'score': -50
                                         }
                                     });
                                 }
@@ -119,53 +126,6 @@ function updateChat(nickname) {
             });
 
         })
-        // answer = 'Appel'
-        // $.ajax({
-        //     type: "POST",
-        //     url: "handler.php",
-        //     data: {
-        //         'function': 'update',
-        //         'state': state,
-        //         'file': file
-        //     },
-        //     dataType: "json",
-        //     success: function (data) {
-        //         // let answer = 1;
-        //         if (data.text) {
-        //             for (let i = 0; i < data.text.length; i++) {
-        //                 if (data.text[i].message === answer + "\n") {
-        //                     // Get current path, which we use to determine where to redirect
-        //                     let p = window.location.pathname.slice(6)
-        //                     if (p === 'index.php' ){
-        //                         window.location.href = "guesser.php";
-        //                     }
-        //                     else if (data.text[i].nickname === name){
-        //                         window.location.href = "index.php";
-        //                     }
-        //
-        //                     console.log(name + data.text[i].nickname);
-        //                     $('#chat-area').append("<p><b>" + data.text[i].nickname + " heeft het goede antwoord gegeven! </b></p>");
-        //                     if (name === data.text[i].nickname) {
-        //                         console.log('adding score');
-        //                         $.ajax({
-        //                             type: "GET",
-        //                             url: "scoreboard/changeScore.php",
-        //                             data: {
-        //                                 'user': data.text[i].nickname,
-        //                                 'score': 1
-        //                             }
-        //                         });
-        //                     }
-        //                 } else {
-        //                     $('#chat-area').append($("<p> <b>" + data.text[i].date + ": " + data.text[i].nickname + ": </b>" + data.text[i].message + "</p>"));
-        //                 }
-        //             }
-        //         }
-        //         document.getElementById('chat-area').scrollTop = document.getElementById('chat-area').scrollHeight;
-        //         instanse = false;
-        //         state = data.state;
-        //     },
-        // });
     } else {
         setTimeout(updateChat(nickname), 1500);
     }

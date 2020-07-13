@@ -12,15 +12,11 @@
             integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="scripts/header.js"></script>
     <script type="text/javascript" src="scripts/loadImage.js"></script>
-    <!--    <script src="../draw/scripts/draw.js"></script>-->
+    <script type="text/javascript" src="scripts/draw.js"></script>
     <script type="text/javascript" src="scripts/chat.js"></script>
     <!--    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>-->
     <script type="text/javascript">
-
         // Hier wordt de gebruiker naar zijn naam gevraagd.
-        // if (document.cookie.indexOf("name=") >= 0) {
-        //
-        // }
         let name
         if (document.cookie == ''){
             name = prompt("Enter your chat name:", "Guest");
@@ -36,6 +32,8 @@
         }
 
         $(function () {
+            // Set caching to false to prevent the app from using cached (not updated) results
+            $.ajaxSetup({ cache: false });
             // display name on page
             $("#name-area").html("<p>" + "You are: " + name + "</p>");
             chatstatus();
@@ -51,6 +49,7 @@
                     }
                 }
             });
+
             // Als enter wordt gedrukt, wordt het berichtt verzonden
             $('#bericht').keyup(function (e) {
                 if (e.keyCode === 13) {
@@ -58,7 +57,6 @@
                     let maxLength = $(this).attr("maxlength");
                     let length = text.length;
                     let answer = "appel"
-
                     if (length < maxLength) {
                         // Hier wordt gecheckt of het juiste antwoord wordt gegeven
                         sendChat(text, name);
